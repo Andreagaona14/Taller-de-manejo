@@ -392,10 +392,55 @@ libros.forEach((libro,index)=>{
 )
 // menu
 
-function menu() {
-    
+let continuar= "si"
+while (continuar === "si") {
+    let menu= prompt("que quieres hacer \n1. ver libros disponibles\n2.agregar nuevo libro\n3.borrar un libro");
+    switch (menu) {
+        case "1":
+            let decision= prompt("deseas ver los demas datos")
+            if (decision === "si") {
+                libros.forEach((libro,index) =>{
+                    console.log(`${index } titulo : ${libro.titulo} autor : ${libro.autor} genero : ${libro.genero} idioma : ${libro.idioma} formato: ${libro.formato } isb: ${libro.isbn} descripcion: ${libro.descripcion} estado: ${libro.estado} ubicacion: ${libro.ubicacion}  fecha de publicacion : ${libro.fecha_publicacion} editorial : ${libro.editorial} paginas: ${libro.paginas} dimensiones: ${libro.dimensiones} peso: ${libro.peso}`);
+                })
+            }else{
+                libros.forEach((libro,index) =>{
+                    console.log(`${index } titulo : ${libro.titulo}`);
+                })
+            }
+            break;
+        case "2":
+            let nuevo = {
+                titulo: prompt("titulo"),
+                autor: prompt("autor"),
+                genero: prompt("genero"),
+                idioma: prompt("idioma"),
+                formato: prompt("formato"),
+                isbn: prompt("isbn"),
+                descripcion: prompt("descripcion"),
+                estado: prompt("estado"),
+                ubicacion: prompt("ubicacion"),
+                fecha_publicacion: prompt("fecha de bublicacion  "),
+                editorial: prompt("editorial"),
+                paginas:prompt("paginas"),
+                dimensiones: prompt("dimensiones"),
+                peso: prompt("peso")
+            }
+            libros.push(nuevo)
+            console.log("agregado con exito");
+            libros.forEach((libro,index) =>{
+                console.log(`${index} titulo : ${libro.titulo}`);
+            })
+            break;
+case "3":
+                let indice=parseInt(prompt("ingresa el numero de el libro que quieres borrar"))
+                libros.splice(indice, 1)
+                console.log("borrado con exito");
+                break;
+        default:
+            break;
+    }
+    continuar= prompt("Deseas continuar")
 }
-
 
 
 
