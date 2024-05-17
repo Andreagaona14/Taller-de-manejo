@@ -338,6 +338,23 @@ let libros = [
     dimensiones: "19*13cm",
     peso : "748 Gramos",
 }, 
+{
+    titulo: "El vaiaje de los Mil Mundos",
+    autor: "Laura Gomez",
+    genero: "Fantasia",
+    idioma : "Español",
+    precio : 19.99,
+    formato : "Tapa dura",
+    isbn : 9783161484,
+    descripcion : "En un mundo donde la magia esta prohibida, una joven descubre un portal secreto.",
+    estado : "Nuevo",
+    ubicacion : "Estaneria15",
+    fecha_publicacion : "15 de marzo del 2023",
+    editorial : "Ediciones Fantasia",
+    paginas : 432,
+    dimensiones: "23*13cm",
+    peso : "650 Gramos",
+}, 
 ]
 
 let nuevoLibro = {
@@ -351,7 +368,7 @@ let nuevoLibro = {
     descripcion : "Es la historia de una joven que roba libros y encuentra consuelo en la lectura",
     estado : "Nuevo",
     ubicacion : "Estanteria8",
-    fecha_pblicacion : "2005",
+    fecha_publicacion : "2005",
     editorial : "Alfred ",
     paginas : 576,
     dimensiones: "19*13cm",
@@ -359,11 +376,27 @@ let nuevoLibro = {
 
 }
 
-libros.push(nuevoLibro);
-libros.pop()
 
-libr
+// agregar un libro
+libros.push("nuevoLibro");
 console.log(libros.length);
+
+// eliminar un libro
+let deleted = libros.pop()
+console.log(deleted);
+
+// mostrar la pila
+libros.forEach((libro,index)=>{
+    console.log("libro " + (index+1) +" Titulo: "+  (libro.titulo) +   " Autor: " +   (libro.autor) + " Genero: " + (libro.genero) + " Idioma: " + (libro.idioma) + " Precio: " + (libro.precio) + " Formato: " + (libro.formato) + " ISBN: " + (libro.isbn) + " Descripcion: " + (libro.descripcion) + " Estado: " + (libro.estado) + " Ubicacion:" + (libro.ubicacion) + " Fecha de publicacion: " + (libro.fecha_publicacion) + " Editorial: " + (libro.editorial) + "Paginas: " + (libro.paginas) + " Dimensiones: "  + (libro.dimensiones)) ;
+}
+)
+// menu
+
+function menu() {
+    
+}
+
+
 
 
 
