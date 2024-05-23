@@ -580,4 +580,4 @@ console.log(librosConDescuentos)
     }
 }
 )
-console.table(descuento)
+console.table(librosConDescuentos)
