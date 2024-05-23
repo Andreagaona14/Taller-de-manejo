@@ -559,6 +559,25 @@ let libros = [
     
     
     
-    
-    
-    
+//  Al array de objetos creado se debe agregar un atributo llamado descuento al cual tiene un valor del 20 porciento.  
+let librosConDescuentos = libros.map((libros)=>{
+    return{
+        ...libros,
+        descuento:20,
+    }
+}
+)
+console.log(librosConDescuentos)  
+
+// Listar los libros por Titulo, Autor, Editorial, Precio y descuento.
+ descuento = libros.map((libro)=>{
+    return{
+        titulo: libro.titulo,
+        autor: libro.autor,
+        editorial: libro.editorial,
+        precio: libro.precio,
+        descuento: libro.descuento,
+    }
+}
+)
+console.table(titulo)
