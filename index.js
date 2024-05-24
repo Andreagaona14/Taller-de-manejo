@@ -356,102 +356,61 @@ let libros = [
         peso : "650 Gramos",
     }, 
     ]
-    
-    let nuevoLibro = {
-        titulo: "The Book Thief",
-        autor: "Markus Zusak",
-        genero: "Ficcion",
-        idioma : "Ingles",
-        precio : 10.99,
-        formato : "Tapa dura",
-        isbn : 6073114230,
-        descripcion : "Es la historia de una joven que roba libros y encuentra consuelo en la lectura",
-        estado : "Nuevo",
-        ubicacion : "Estanteria8",
-        fecha_publicacion : "2005",
-        editorial : "Alfred ",
-        paginas : 576,
-        dimensiones: "19*13cm",
-        peso : "408 Gramos",
-    
-    }
-    
-    
-    // agregar un libro
-    libros.push("nuevoLibro");
-    console.log(libros.length);
-    
-    // eliminar un libro
-    let deleted = libros.pop()
-    console.log(deleted);
-    
-    // mostrar la pila
-    libros.forEach((libro,index)=>{
-        console.log("libro " + (index+1) +" Titulo: "+  (libro.titulo) +   " Autor: " +   (libro.autor) + " Genero: " + (libro.genero) + " Idioma: " + (libro.idioma) + " Precio: " + (libro.precio) + " Formato: " + (libro.formato) + " ISBN: " + (libro.isbn) + " Descripcion: " + (libro.descripcion) + " Estado: " + (libro.estado) + " Ubicacion:" + (libro.ubicacion) + " Fecha de publicacion: " + (libro.fecha_publicacion) + " Editorial: " + (libro.editorial) + "Paginas: " + (libro.paginas) + " Dimensiones: "  + (libro.dimensiones)) ;
-    }
-    )
     // menu
-    
-    let continuar= "si"
-    while (continuar === "si") {
-        let menu= prompt("que quieres hacer \n1. ver libros disponibles\n2.agregar nuevo libro\n3.borrar un libro");
-        switch (menu) {
-            case "1":
-                let decision= prompt("deseas ver los demas datos")
-                if (decision === "si") {
-                    libros.forEach((libro,index) =>{
-                        console.log(`${index } titulo : ${libro.titulo} autor : ${libro.autor} genero : ${libro.genero} idioma : ${libro.idioma} formato: ${libro.formato } isb: ${libro.isbn} descripcion: ${libro.descripcion} estado: ${libro.estado} ubicacion: ${libro.ubicacion}  fecha de publicacion : ${libro.fecha_publicacion} editorial : ${libro.editorial} paginas: ${libro.paginas} dimensiones: ${libro.dimensiones} peso: ${libro.peso}`);
-                    })
-                }else{
-                    libros.forEach((libro,index) =>{
-                        console.log(`${index } titulo : ${libro.titulo}`);
-                    })
-                }
-                break;
-            case "2":
-                let nuevo = {
-                    titulo: prompt("titulo"),
-                    autor: prompt("autor"),
-                    genero: prompt("genero"),
-                    idioma: prompt("idioma"),
-                    formato: prompt("formato"),
-                    isbn: prompt("isbn"),
-                    descripcion: prompt("descripcion"),
-                    estado: prompt("estado"),
-                    ubicacion: prompt("ubicacion"),
-                    fecha_publicacion: prompt("fecha de bublicacion  "),
-                    editorial: prompt("editorial"),
-                    paginas:prompt("paginas"),
-                    dimensiones: prompt("dimensiones"),
-                    peso: prompt("peso")
-                }
-                libros.push(nuevo)
-                console.log("agregado con exito");
-                libros.forEach((libro,index) =>{
-                    console.log(`${index} titulo : ${libro.titulo}`);
-                })
-                break;
-    case "3":
-                    let indice=parseInt(prompt("ingresa el numero de el libro que quieres borrar"))
-                    libros.splice(indice, 1)
-                    console.log("borrado con exito");
-                    break;
-            default:
-                break;
-        }
-        continuar= prompt("Deseas continuar")
-    }
-    
-    
-    let editorial = libros.map((libro)=>{
-        return{
-         editorial: libro.editorial,
+    let continuar= "si", menu;
+    while (continuar === "si") 
+    menu = "Menu\n\n";
+    menu += "1-Ver libros\n";
+    menu += "2-Agregar un libro\n";
+    menu += "3-Eliminar un libro\n";
+    menu += "4-Listar libros\n";
+    menu += "4-Resumen de los segmentos\n";
+    menu += "ingrese un numero";
+    numero = parseInt(prompt(menu));
+    switch (decision) {
+        case 1:
+            libros.forEach((libro,index)=>{
+                console.log("libro " + (index+1) +" Titulo: "+  (libro.titulo) +   " Autor: " +   (libro.autor) + " Genero: " + (libro.genero) + " Idioma: " + (libro.idioma) + " Precio: " + (libro.precio) + " Formato: " + (libro.formato) + " ISBN: " + (libro.isbn) + " Descripcion: " + (libro.descripcion) + " Estado: " + (libro.estado) + " Ubicacion:" + (libro.ubicacion) + " Fecha de publicacion: " + (libro.fecha_publicacion) + " Editorial: " + (libro.editorial) + "Paginas: " + (libro.paginas) + " Dimensiones: "  + (libro.dimensiones)) ;
+            }
+            )
+            break;
+        case 2:
+            let nuevoLibro = {
+                titulo: "The Book Thief",
+                autor: "Markus Zusak",
+                genero: "Ficcion",
+                idioma : "Ingles",
+                precio : 10.99,
+                formato : "Tapa dura",
+                isbn : 6073114230,
+                descripcion : "Es la historia de una joven que roba libros y encuentra consuelo en la lectura",
+                estado : "Nuevo",
+                ubicacion : "Estanteria8",
+                fecha_publicacion : "2005",
+                editorial : "Alfred ",
+                paginas : 576,
+                dimensiones: "19*13cm",
+                peso : "408 Gramos"
+             }
+             // agregar un libro
+              libros.push(nuevoLibro);
+              console.log(libros.length);
+              libros.forEach((libro,index)=>{
+                console.log("libro " + (index+1) +" Titulo: "+  (libro.titulo) +   " Autor: " +   (libro.autor) + " Genero: " + (libro.genero) + " Idioma: " + (libro.idioma) + " Precio: " + (libro.precio) + " Formato: " + (libro.formato) + " ISBN: " + (libro.isbn) + " Descripcion: " + (libro.descripcion) + " Estado: " + (libro.estado) + " Ubicacion:" + (libro.ubicacion) + " Fecha de publicacion: " + (libro.fecha_publicacion) + " Editorial: " + (libro.editorial) + "Paginas: " + (libro.paginas) + " Dimensiones: "  + (libro.dimensiones)) ;
+            })
+            break;
+        case 3:
+           let indice=parseInt(prompt("Ingrese el numero del libro a eliminar"))
+           libros.splice(indice,1)
+           console.log("Se elimino con exito")
+           libros.forEach((libro,index)=>{
+            console.log("libro " + (index+1) +" Titulo: "+  (libro.titulo) +   " Autor: " +   (libro.autor) + " Genero: " + (libro.genero) + " Idioma: " + (libro.idioma) + " Precio: " + (libro.precio) + " Formato: " + (libro.formato) + " ISBN: " + (libro.isbn) + " Descripcion: " + (libro.descripcion) + " Estado: " + (libro.estado) + " Ubicacion:" + (libro.ubicacion) + " Fecha de publicacion: " + (libro.fecha_publicacion) + " Editorial: " + (libro.editorial) + "Paginas: " + (libro.paginas) + " Dimensiones: "  + (libro.dimensiones)) ;
+        } )
+         break;
+        case 4:
+           // Inicio del manejo de array methods
+
             
-        }
-    }
-    )
-    console.table(editorial)
-    
     // Realizar uso del array Method .map y listar los libros por Titulo, Autor, Editorial y Precio
     let titulo = libros.map((libro)=>{
         return{
@@ -460,113 +419,107 @@ let libros = [
             editorial: libro.editorial,
             precio: libro.precio
         }
-    }
-    )
+    })
     console.table(titulo)
-    
-    // Crear 10 iteraciones diferentes manteniendo el atributo Titulo
-     titulo = libros.map((libro)=>{
-        return{
-            titulo: libro.titulo,
-            genero: libro.genero,
+  // Crear 10 iteraciones diferentes manteniendo el atributo Titulo
+        titulo = libros.map((libro)=>{
+            return{
+                titulo: libro.titulo,
+                genero: libro.genero,
+            }
+        } )
+        console.table(titulo)
+
+        titulo = libros.map((libro)=>{
+            return{
+                titulo: libro.titulo,
+                idioma: libro.idioma,
+            }
         }
-    }
-    )
-    console.table(titulo)
-    
-    titulo = libros.map((libro)=>{
-        return{
-            titulo: libro.titulo,
-            idioma: libro.idioma,
+        )
+        console.table(titulo)
+        
+        titulo = libros.map((libro)=>{
+            return{
+                titulo: libro.titulo,
+                formato: libro.formato,
+            }
         }
-    }
-    )
-    console.table(titulo)
-    
-    titulo = libros.map((libro)=>{
-        return{
-            titulo: libro.titulo,
-            formato: libro.formato,
+        )
+        console.table(titulo)
+        
+        titulo = libros.map((libro)=>{
+            return{
+                titulo: libro.titulo,
+                isbn: libro.isbn,
+            }
         }
-    }
-    )
-    console.table(titulo)
-    
-    titulo = libros.map((libro)=>{
-        return{
-            titulo: libro.titulo,
-            isbn: libro.isbn,
+        )
+        console.table(titulo)
+        
+        titulo = libros.map((libro)=>{
+            return{
+                titulo: libro.titulo,
+                descripcion: libro.descripcion,
+                dimensiones: libro.dimensiones,
+            }
         }
-    }
-    )
-    console.table(titulo)
-    
-    titulo = libros.map((libro)=>{
-        return{
-            titulo: libro.titulo,
-            descripcion: libro.descripcion,
-            dimensiones: libro.dimensiones,
+        )
+        console.table(titulo)
+        
+        titulo = libros.map((libro)=>{
+            return{
+                titulo: libro.titulo,
+                estado: libro.estado,
+                peso: libro.peso,
+            }
         }
-    }
-    )
-    console.table(titulo)
-    
-    titulo = libros.map((libro)=>{
-        return{
-            titulo: libro.titulo,
-            estado: libro.estado,
-            peso: libro.peso,
+        )
+        console.table(titulo)
+        
+        titulo = libros.map((libro)=>{
+            return{
+                titulo: libro.titulo,
+                ubicacion: libro.ubicacion,
+            }
         }
-    }
-    )
-    console.table(titulo)
-    
-    titulo = libros.map((libro)=>{
-        return{
-            titulo: libro.titulo,
-            ubicacion: libro.ubicacion,
+        )
+        console.table(titulo)
+        
+        titulo = libros.map((libro)=>{
+            return{
+                titulo: libro.titulo,
+                fecha_publicacion: libro.fecha_publicacion,
+            }
         }
-    }
-    )
-    console.table(titulo)
-    
-    titulo = libros.map((libro)=>{
-        return{
-            titulo: libro.titulo,
-            fecha_publicacion: libro.fecha_publicacion,
+        )
+        console.table(titulo)
+        
+        titulo = libros.map((libro)=>{
+            return{
+                titulo: libro.titulo,
+                idioma: libro.idioma,
+            }
         }
-    }
-    )
-    console.table(titulo)
-    
-    titulo = libros.map((libro)=>{
-        return{
-            titulo: libro.titulo,
-            idioma: libro.idioma,
+        )
+        console.table(titulo)
+        
+        titulo = libros.map((libro)=>{
+            return{
+                titulo: libro.titulo,
+                paginas: libro.paginas,
+            }
         }
-    }
-    )
-    console.table(titulo)
-    
-    titulo = libros.map((libro)=>{
-        return{
-            titulo: libro.titulo,
-            paginas: libro.paginas,
-        }
-    }
-    )
-    console.table(titulo)
-    
-    
-    
-//  Al array de objetos creado se debe agregar un atributo llamado descuento al cual tiene un valor del 20 porciento.  
+        )
+        console.table(titulo)
+
+        //  Al array de objetos creado se debe agregar un atributo llamado descuento al cual tiene un valor del 20 porciento.  
 let librosConDescuentos = libros.map((libros)=>{
     return{
         ...libros,
         descuento:20,
     }
-}
-)
+})
 console.log(librosConDescuentos)  
 
 // Listar los libros por Titulo, Autor, Editorial, Precio y descuento.
@@ -576,32 +529,102 @@ console.log(librosConDescuentos)
         autor: libro.autor,
         editorial: libro.editorial,
         precio: libro.precio,
-        descuento: libro.descuento,
+        descuento: libro.descuento
     }
-}
-)
+})
 console.table(librosConDescuentos)
 
-// Obtener un array con los libros que tengan un precio mayor a 50 dolares
-
+            break;
+       case 5: 
+       // Obtener un array con los libros que tengan un precio mayor a 50 dolares
 let librosCaros = libros.filter((libro) =>{
     return libro.precio > 11;
-}
-)
+})
 console.table(librosCaros);
 
 
 // Realizar un array con el resumen de libros por numero mas alto de paginas mostrando, titulo, autor, editorial, paginas
-
-let librosConMayorPaginas = libros.filter((a,b) =>b.paginas-a.paginas);
-console.table(librosConMayorPaginas.map(libro =>({
-    titulo: libro.titulo,
-    autor: libro.autor,
-    editorial: libro.editorial,
-    paginas: libro.paginas,
-})));   
+let librosConMayorPaginas = libros.sort((a,b) =>b.paginas-a.paginas)
+.map((titulo) =>{
+    return{
+    titulo: titulo.titulo,
+    autor: titulo.autor,
+    editorial: titulo.editorial,
+    paginas: titulo.paginas
+}});   
+console.table(librosConMayorPaginas);
  
 //Ordenar los libros por numero de paginas de mayor a menor
 librosConMayorPaginas = libros.sort((a,b) =>b.paginas - a.paginas);
 console.table(librosConMayorPaginas);
     
+// Obtener un array de libros caros por titulo mayores de 11 dolares, resumirlos por titulo, autor, precio.
+let librosCarosPorTitulosDesc = libros.filter((libro) =>{
+    return libro.precio>11;
+})
+.map((titulo) => {
+    return{
+        titulo: titulo.titulo,
+        autor: titulo.autor,
+        precio: titulo.precio
+    }
+}
+)
+.sort((a,b)=> b.precio - a.precio);
+console.table(librosCarosPorTitulosDesc);
+
+// Realiza un resumen de libros que tengan menos de 100 paginas resumirlos por titulo, autor, editorial y paginas.
+let libroMenosPaginas = libros.sort((a,b)=>b.paginas - a.paginas);
+ libroMenosPaginas = libros.filter((libro)=>{
+    return libro.paginas <100;
+})
+.map((titulo) => {
+    return{
+ titulo: titulo.titulo,
+    autor: titulo.autor,
+    editorial: titulo.editorial,
+    paginas: titulo.paginas
+    }
+}
+)
+console.table(libroMenosPaginas)
+
+// Realizar un resumen de libros caros mayores a 20 dolares de mayor a menor resumirlos por titulo, autor, precio.
+librosCarosPorTitulosDesc = libros.filter((libro) =>{
+    return libro.precio>20;
+})
+.map((titulo) => {
+    return{
+        titulo: titulo.titulo,
+        autor: titulo.autor,
+        precio: titulo.precio
+    }
+}
+)
+.sort((a,b)=> b.precio - a.precio);
+console.table(librosCarosPorTitulosDesc);
+
+// Realizar un resumen de libros por numero mas alto de paginas resumirlos por titulo, autor, editorial, paginas ordenados de mayor a menor.
+ librosConMayorPaginas = libros.filter((a,b) =>b.paginas-a.paginas);
+console.table(librosConMayorPaginas.map(titulo =>({
+    titulo: titulo.titulo,
+    autor: titulo.autor,
+    editorial: titulo.editorial,
+    paginas: titulo.paginas
+})));   
+       default:
+        break;
+    }
+     
+    
+    
+   
+    
+   
+    
+   
+    
+    
+    
+
+
