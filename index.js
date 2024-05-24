@@ -593,5 +593,15 @@ console.table(librosCaros);
 
 // Realizar un array con el resumen de libros por numero mas alto de paginas mostrando, titulo, autor, editorial, paginas
 
-let librosConMayorPaginas = libros.sort((a,b) =>b.paginas-a.paginas);
-console.table(librosConMayorPaginas);   
+let librosConMayorPaginas = libros.filter((a,b) =>b.paginas-a.paginas);
+console.table(librosConMayorPaginas.map(libro =>({
+    titulo: libro.titulo,
+    autor: libro.autor,
+    editorial: libro.editorial,
+    paginas: libro.paginas,
+})));   
+ 
+//Ordenar los libros por numero de paginas de mayor a menor
+librosConMayorPaginas = libros.sort((a,b) =>b.paginas - a.paginas);
+console.table(librosConMayorPaginas);
+    
