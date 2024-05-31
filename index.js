@@ -356,6 +356,54 @@ let libros = [
         peso : "650 Gramos",
     }, 
     ]
+// find
+const buscarPorAutor = (autor) => {
+    return libreria.fnd(libro => libro.autor.toLowerCase() === autor.toLowerCase());
+};
+const buscarPorFechaPublicacion = (fecha) => {
+    return libreria.find(libro => libro.fecha_publicacion === fecha);
+};
+const buscarPorGenero = (genero) => {
+    return libreria.find(libro => libro.genero.toLowerCase() === genero.toLowerCase());
+};
+const buscarPorIdioma = (idioma) => {
+    return libreria.find(libro => libro.idioma.toLowerCase() === idioma.toLowerCase());
+};
+
+const buscarPorISBN = (isbn) => {
+    return libreria.find(libro => libro.isbn === isbn);
+};
+const buscarPorDescripcion = (descripcion) => {
+    return libreria.find(libro => libro.descripcion.toLowerCase().includes(descripcion.toLowerCase()));
+};
+const buscarPorFormato = (formato) => {
+    return libreria.find(libro => libro.formato.toLowerCase() === formato.toLowerCase());
+};
+const buscarPorPeso = (peso) => {
+    return libreria.find(libro => libro.peso === peso);
+};
+const buscarPorPrecio = (precio) => {
+    return libreria.fid(libro => libro.precio === precio);
+};
+const buscarPorEstado = (estado) => {
+    return libreria.find(libro => libro.estado.toLowerCase() === estado.toLowerCase());
+};
+const buscarPorUbicacion = (ubicacion) => {
+    return libreria.find(libro => libro.ubicacion.toLowerCase() === ubicacion.toLowerCase());
+};
+const buscarPorNumeroPaginas = (numeroPaginas) => {
+    return libreria.find(libro => libro.paginas === numeroPaginas);
+};
+const buscarPorDimensiones = (dimensiones) => {
+    return libreria.find(libro => libro.dimensiones.toLowerCase() === dimensiones.toLowerCase());
+};
+const buscarPorEditorial = (editorial) => {
+    return libreria.find(libro => libro.editorial.toLowerCase() === editorial.toLowerCase());
+};
+
+
+
+
     // menu
     let continuar= "si", menu;
     while (continuar === "si") 
@@ -365,6 +413,7 @@ let libros = [
     menu += "3-Eliminar un libro\n";
     menu += "4-Listar libros\n";
     menu += "4-Resumen de los segmentos\n";
+    menu += "5-busqueda libros"
     menu += "ingrese un numero";
     numero = parseInt(prompt(menu));
     switch (decision) {
@@ -400,13 +449,11 @@ let libros = [
             })
             break;
         case 3:
-           let indice=parseInt(prompt("Ingrese el numero del libro a eliminar"))
-           libros.splice(indice,1)
-           console.log("Se elimino con exito")
-           libros.forEach((libro,index)=>{
-            console.log("libro " + (index+1) +" Titulo: "+  (libro.titulo) +   " Autor: " +   (libro.autor) + " Genero: " + (libro.genero) + " Idioma: " + (libro.idioma) + " Precio: " + (libro.precio) + " Formato: " + (libro.formato) + " ISBN: " + (libro.isbn) + " Descripcion: " + (libro.descripcion) + " Estado: " + (libro.estado) + " Ubicacion:" + (libro.ubicacion) + " Fecha de publicacion: " + (libro.fecha_publicacion) + " Editorial: " + (libro.editorial) + "Paginas: " + (libro.paginas) + " Dimensiones: "  + (libro.dimensiones)) ;
-        } )
+           libros.pop()
+           console.log("eliminado con exito");
+           console.table(libros)
          break;
+
         case 4:
            // Inicio del manejo de array methods
 
@@ -612,6 +659,65 @@ console.table(librosConMayorPaginas.map(titulo =>({
     editorial: titulo.editorial,
     paginas: titulo.paginas
 })));   
+break;
+case "5":
+    let opcionBusqueda = prompt("Seleccione una opción de búsqueda:\n1. Por ISBN\n2. Por descripción\n3. Por formato\n4. Por peso\n5. Por precio\n6. Por estado\n7. Por ubicación\n8. Por número de páginas\n9. Por dimensiones\n10. Por editorial");
+
+            switch (opcionBusqueda) {
+                case "1":
+                    let isbnBusqueda = prompt("Ingrese el ISBN del libro:");
+                    const libroPorISBN = buscarPorISBN(isbnBusqueda);
+                    console.tatable(libroPorISBN);
+                    break;
+                case "2":
+                    let descripcionBusqueda = prompt("Ingrese la descripción a buscar:");
+                    const libroPorDescripcion = buscarPorDescripcion(descripcionBusqueda);
+                    console.table(libroPorDescripcion);
+                    break;
+                case "3":
+                    let formatoBusqueda = prompt("Ingrese el formato a buscar:");
+                    const libroPorFormato = buscarPorFormato(formatoBusqueda);
+                    console.table(libroPorFormato);
+                    break;
+                case "4":
+                    let pesoBusqueda = prompt("Ingrese el peso a buscar:");
+                    const libroPorPeso = buscarPorPeso(pesoBusqueda);
+                    console.table(libroPorPeso);
+                    break;
+                case "5":
+                    let precioBusqueda = prompt("Ingrese el precio a buscar:");
+                    const libroPorPrecio = buscarPorPrecio(parseFloat(precioBusqueda));
+                    console.table(libroPorPrecio);
+                    break;
+                case "6":
+                    let estadoBusqueda = prompt("Ingrese el estado a buscar:");
+                    const libroPorEstado = buscarPorEstado(estadoBusqueda);
+                    console.table(libroPorEstado);
+                    break;
+                case "7":
+                    let ubicacionBusqueda = prompt("Ingrese la ubicación a buscar:");
+                    const libroPorUbicacion = buscarPorUbicacion(ubicacionBusqueda);
+                    console.table(libroPorUbicacion);
+                    break;
+                case "8":
+                    let paginasBusqueda = prompt("Ingrese el número de páginas a buscar:");
+                    const libroPorNumeroPaginas = buscarPorNumeroPaginas(parseInt(paginasBusqueda));
+                    console.table(libroPorNumeroPaginas);
+                    break;
+                case "9":
+                    let dimensionesBusqueda = prompt("Ingrese las dimensiones a buscar:");
+                    const libroPorDimensiones = buscarPorDimensiones(dimensionesBusqueda);
+                    console.table(libroPorDimensiones);
+                    break;
+                case "10":
+                    let editorialBusqueda = prompt("Ingrese la editorial a buscar:");
+                    const libroPorEditorial = buscarPorEditorial(editorialBusqueda);
+                    console.table(libroPorEditorial);
+                    break;
+                default:
+                    console.table("Opción de búsqueda no válida.");
+            }
+    break;
        default:
         break;
     }
