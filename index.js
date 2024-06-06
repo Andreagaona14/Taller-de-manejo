@@ -357,47 +357,47 @@ let libros = [
     }, 
     ]
 // find
-const buscarPorAutor = (autor) => {
+let buscarPorAutor = (autor) => {
     return libreria.fnd(libro => libro.autor.toLowerCase() === autor.toLowerCase());
 };
-const buscarPorFechaPublicacion = (fecha) => {
+let buscarPorFechaPublicacion = (fecha) => {
     return libreria.find(libro => libro.fecha_publicacion === fecha);
 };
-const buscarPorGenero = (genero) => {
+let buscarPorGenero = (genero) => {
     return libreria.find(libro => libro.genero.toLowerCase() === genero.toLowerCase());
 };
-const buscarPorIdioma = (idioma) => {
+let buscarPorIdioma = (idioma) => {
     return libreria.find(libro => libro.idioma.toLowerCase() === idioma.toLowerCase());
 };
 
-const buscarPorISBN = (isbn) => {
+let buscarPorISBN = (isbn) => {
     return libreria.find(libro => libro.isbn === isbn);
 };
-const buscarPorDescripcion = (descripcion) => {
+let buscarPorDescripcion = (descripcion) => {
     return libreria.find(libro => libro.descripcion.toLowerCase().includes(descripcion.toLowerCase()));
 };
-const buscarPorFormato = (formato) => {
+let buscarPorFormato = (formato) => {
     return libreria.find(libro => libro.formato.toLowerCase() === formato.toLowerCase());
 };
-const buscarPorPeso = (peso) => {
+let buscarPorPeso = (peso) => {
     return libreria.find(libro => libro.peso === peso);
 };
-const buscarPorPrecio = (precio) => {
+let buscarPorPrecio = (precio) => {
     return libreria.fid(libro => libro.precio === precio);
 };
-const buscarPorEstado = (estado) => {
+let buscarPorEstado = (estado) => {
     return libreria.find(libro => libro.estado.toLowerCase() === estado.toLowerCase());
 };
-const buscarPorUbicacion = (ubicacion) => {
+let buscarPorUbicacion = (ubicacion) => {
     return libreria.find(libro => libro.ubicacion.toLowerCase() === ubicacion.toLowerCase());
 };
-const buscarPorNumeroPaginas = (numeroPaginas) => {
+let buscarPorNumeroPaginas = (numeroPaginas) => {
     return libreria.find(libro => libro.paginas === numeroPaginas);
 };
-const buscarPorDimensiones = (dimensiones) => {
+let buscarPorDimensiones = (dimensiones) => {
     return libreria.find(libro => libro.dimensiones.toLowerCase() === dimensiones.toLowerCase());
 };
-const buscarPorEditorial = (editorial) => {
+let buscarPorEditorial = (editorial) => {
     return libreria.find(libro => libro.editorial.toLowerCase() === editorial.toLowerCase());
 };
 
@@ -661,7 +661,20 @@ console.table(librosConMayorPaginas.map(titulo =>({
 })));   
 break;
 case "5":
-    let opcionBusqueda = prompt("Seleccione una opción de búsqueda:\n1. Por ISBN\n2. Por descripción\n3. Por formato\n4. Por peso\n5. Por precio\n6. Por estado\n7. Por ubicación\n8. Por número de páginas\n9. Por dimensiones\n10. Por editorial");
+    // let opcionBusqueda = prompt("Seleccione una opción de búsqueda:\n1. Por ISBN\n2. Por descripción\n3. Por formato\n4. Por peso\n5. Por precio\n6. Por estado\n7. Por ubicación\n8. Por número de páginas\n9. Por dimensiones\n10. Por editorial");
+    menu = "Menu\n\n";
+    menu += "1-Por ISBN\n";
+    menu += "2-Por descripcion\n";
+    menu += "3-Por formato\n";
+    menu += "4-Por peso\n";
+    menu += "5-Por precio \n";
+    menu += "6-Por estado\n"
+    menu += "7-Por ubicacion\n";
+    menu += "8-Por numero de paginas\n";
+    menu += "9-Por dimensiones\n";
+    menu += "10-Por editorial\n\n";
+    menu += "Seleccione una opcion de busqueda\n\n";
+    numero = parseInt(prompt(menu));
 
             switch (opcionBusqueda) {
                 case "1":
